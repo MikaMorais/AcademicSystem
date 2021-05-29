@@ -21,8 +21,8 @@
                             Reports
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Students</a>
-                            <a class="dropdown-item" href="#">Courses</a>
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/reports/students.jsp">Students</a>
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/reports/courses.jsp">Courses</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

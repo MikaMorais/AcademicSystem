@@ -1,10 +1,12 @@
+<%@page import="br.academicsys.model.Student"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
-<%@page import="br.academicsys.dao.CourseDAO"%>
+<%@page import="br.academicsys.dao.StudentDAO"%>
 <%@page import="br.academicsys.model.Course"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    CourseDAO cDAO = new CourseDAO();
-    Map<Course, Integer> courses = cDAO.getAllCoursesCountStudents();
+    StudentDAO sDAO = new StudentDAO();
+    ArrayList<Student> students = sDAO.getAllStudents();
 %>
 <!DOCTYPE html>
 <html>
@@ -18,21 +20,21 @@
             <table class="table justify-content-center">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">RA</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Course</th>
                         <th scope="col">Course Type</th>
-                        <th scope="col">Qtd. Students</th>
-                        <th scope="col">Students List</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (Map.Entry<Course, Integer> c : courses.entrySet()) { %>
+                    <% for (Student s : students) { %>
                     <tr>
-                        <td><%= c.getKey().getCourseName() %></td>
-                        <td><%= c.getKey().getCourseType()%></td>
-                        <td><%= c.getValue()%></td>
-                        <td>Button Students List<</td>
+                        <td><%= s.getRa() %></td>
+                        <td><%= s.getStudentName()%></td>
+                        <td><%= s.getCourse().getCourseName()%></td>
+                        <td><%= s.getCourse().getCourseType()%></td>
                         <td>Button Edit</td>
                         <td>Button Delete</td>
                     </tr>
