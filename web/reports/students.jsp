@@ -6,7 +6,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     StudentDAO sDAO = new StudentDAO();
-    ArrayList<Student> students = sDAO.getAllStudents();
+    ArrayList<Student> students;
+    boolean panelFilter = false;
+    
+    if(request.getParameter("idCurso") != null) {
+     int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+     students = sDAO.getAllStudents(idCurso);
+     panelFilter=true;
+    } else {
+        students = sDAO.getAllStudents();
+    }
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +26,19 @@
     </head>
     <body>
         <jsp:include page="../menu.jsp"></jsp:include>
+        <script src="../js/modalExclusion.js"></script>
+        
+        <% if(panelFilter && students.size() > 0) { %>
+        <div class="card mt-4" style="width: 90%; margin: 0 auto 0;">
+            <div class="card-header bg-dark">
+                <p class="text-white">Filter applied</p>
+            </div>
+            <div class="card-body">
+                <h6>Showing only students from the course: <strong><%= students.get(0).getCourse().getCourseName() %></strong></h6>
+                <a href="students.jsp" class="btn btn-primary">Clean filter</a>
+            </div>
+        </div>
+        <% } %>
         <div class="container mt-4">
             <table class="table justify-content-center">
                 <thead class="thead-dark">
@@ -36,7 +59,7 @@
                         <td><%= s.getCourse().getCourseName()%></td>
                         <td><%= s.getCourse().getCourseType()%></td>
                         <td>Button Edit</td>
-                        <td>Button Delete</td>
+                        <td><a id="deleteStudent"  class="btn btn-danger" href="../StudentController?typeAction=delete">Delete</a></td>
                     </tr>
                     <% } %>
                 </tbody>

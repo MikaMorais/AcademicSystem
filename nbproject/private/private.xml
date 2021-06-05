@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/src/java/br/academicsys/dao/CourseDAO.java</file>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/web/reports/courses.jsp</file>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/src/java/br/academicsys/model/Course.java</file>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/web/index.jsp</file>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/web/menu.jsp</file>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/src/java/br/academicsys/model/Student.java</file>
-            <file>file:/C:/Users/moise/Desktop/JavaProjects/AcademicSystem/src/java/br/academicsys/dao/ConnectionFactory.java</file>
+            <file>file:/D:/DevProjects/JavaProjects/AcademicSystem/web/menu.jsp</file>
+            <file>file:/D:/DevProjects/JavaProjects/AcademicSystem/src/java/br/academicsys/dao/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>

@@ -2,6 +2,7 @@ package br.academicsys.dao;
 
 import br.academicsys.model.Course;
 import br.academicsys.model.Student;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +25,7 @@ public class StudentDAO {
                 + "INNER JOIN \"tb_curso\" ON \"tb_aluno\".\"idCurso\" = \"tb_curso\".\"idCurso\"";
         
         if (idCurso.length != 0) {
-            query += "WHERE \"tb_curso\".\"idCurso\" = " + idCurso[0];
+            query += " WHERE \"tb_curso\".\"idCurso\" = " + idCurso[0];
         }
         
         query += " ORDER BY \"nome\"";
@@ -53,5 +54,22 @@ public class StudentDAO {
         stm.getConnection().close();
         
         return students;
+    }
+    
+    public boolean deleteStudent(int idAluno) {
+        try {
+            String query = "DELETE FROM \"tb_aluno\" WHERE \"idAluno\" = ?";
+            PreparedStatement stm = ConnectionFactory.getConnection().prepareStatement(query);
+            
+            stm.setInt(1, idAluno);
+            
+            stm.execute();
+            stm.getConnection().close();
+            
+            return true;
+            
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }
